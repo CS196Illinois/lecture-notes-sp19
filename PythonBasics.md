@@ -57,12 +57,12 @@ int myNumber = 5
 ```
 But in python that variable may be defined:
 ```python
-myNumber = 5
+my_number = 5
 ```
 Note that I do not have to specify that the `myNumber` is an `int` in python. This is because python employs dynamic typing for variables while java statically types variables. This means, that once defined, a variable in python can actually change types. For example, the following is an entirely valid bit of code
 ```python
-myNumber = 5
-myNumber = 'Hello'
+my_number = 5
+my_number = 'Hello'
 ```
 In java, this would throw an error, but in python, it is completely acceptable. This ability to change the type of a variable may seem convenient, but it can become confusing at times where you lose track of types of your variables. Luckily, you can use the `type` method to determine the type of the variable.
 ```python
@@ -103,3 +103,34 @@ There are times where you may wish  to only work with a portion of the list. At 
 You may also choose to omit either index in your slice. Omiting `first`, will start the slice at the start of the array, and omitting `second` will end the slice at the end of the array. So, `my_list[5:]` will produce `[6,7]` and `my_list[:2]` will produce `[1,2]`.
 
 Note, any changes you make to a slice of the list, such as changing a value, will affect the entire list. You can find more documentation [here](https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/).
+
+Another note about python lists is that python strings are treated as lists. Similar to a list, you can index a string. For example
+```python
+my_string = 'hello'
+print(my_string[1])
+```
+This code will print out 'e' since 'e' is the character at the 1-index. Additionally, strings can be sliced in the same way as lists in order to produce substrings. 
+### Dictionaries
+Dictionaries work very similarly to Hash Maps in Java. A Dictionary is like a list in that it is a collection of objects, but it differs primarily in the fact that it is unordered. Rather than accessing elements via their numerical index (0,1,2,3... n - 1 where n is the size of the List, Dictionaries function by using key-value pairs. Rather than accessing a certain value by its numerical index, you can access that value via a key. Below is how you can define a dictionary in python.
+
+```python
+empty_dict = {}
+my_dict = {'a': 'alpha', 'b' : 'bravo'}
+```
+In this example, `empty_dict` is an empty dictionary and `my_dict` is a dictionary with 2 key-value pairs. In this example, the keys of the dictionary are `a,b` and the values are `alpha, bravo`. If I wished to retreive the value `bravo` from this dictionary, I could do `my_dict['b']` or `my_dict.get('b')` since `'b'` is the key associated with the value `bravo`.
+Similar, to a list where you can have invalid indices (like when you enter an index that is greater than the size of the list), the same can happen with dictionaries if you attempt to use a key that is not valid. For example, `my_dict['aba']` would return a `KeyError` because a valid has not been given for the key 'aba'. 
+If I wish to add the key value pair `'c': 'charlie'` where 'c' is the key for the value 'charlie', the following could be used:
+```python
+my_dict['c'] = 'charlie'
+```
+Similarly, if I wished to change the value associated with 'b' to 'beta', the following could be used.
+```python
+my_dict['b'] = 'bravo'
+```
+If I wish to check if a certain key exists in a dictionary, we can use an `if statement` which we will go into more detail later. 
+The following can be used to see if the key 'a' exists in the `my_dict`
+```python
+if 'a' in my_dict:
+  # do something
+```
+Note, that the keys and values in a dictionary are not required to be strings, they can be any datatype, but keep in mind that each key must be unique. While two keys may have the same value associated with them, each key must different. 
