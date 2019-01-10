@@ -103,13 +103,63 @@ There are times where you may wish  to only work with a portion of the list. At 
 You may also choose to omit either index in your slice. Omiting `first`, will start the slice at the start of the array, and omitting `second` will end the slice at the end of the array. So, `my_list[5:]` will produce `[6,7]` and `my_list[:2]` will produce `[1,2]`.
 
 Note, any changes you make to a slice of the list, such as changing a value, will affect the entire list. You can find more documentation [here](https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/).
-
+#### Some extra notes on Strings
 Another note about python lists is that python strings are treated as lists. Similar to a list, you can index a string. For example
 ```python
 my_string = 'hello'
 print(my_string[1])
 ```
-This code will print out 'e' since 'e' is the character at the 1-index. Additionally, strings can be sliced in the same way as lists in order to produce substrings. 
+This code will print out 'e' since 'e' is the character at the 1-index. 
+
+Additionally, strings can be sliced in the same way as lists in order to produce substrings. 
+```python
+my_string = 'Hello World'
+print(my_string[:5])
+```
+This code will print `'hello'` as each character in the string is treated as an element in the list. The character at index 5 is a ' ', so the slice will produce all the characters before that. 
+
+Another interesting property of Strings is that a string can be reversed as follows:
+```python
+my_string = 'hello'
+reversed_string = my_string[::-1]
+print(reversed_string)
+```
+This code will print `'elloh'`. This will work with any list!
+
+Some other string methods you may find useful are `find` and `join`.
+
+The find method can be used to determine if a string is contained in another string.
+```python
+big_string = 'hello world'
+small_string = 'world'
+print(big_string.find(small_string))
+```
+The `find` method will return the index where `small string` starts. So, for this example, it would return 6. If the `small_string` was not present inside of `big_string` the method would return -1. Keep in mind that strings are case-sensitive, so if `small_string = 'World'`, `big_string.find(small_string`) would return -1. The `find` method also can accept to optional arguments, `beg` and `end`, which specify the beginning and ending index to start searching for the string. 
+```python
+big_string.find(small_string, 2, len(big_string))
+```
+would only check to see if `small_string` was in `big_string[2:len(big_string)]` (The `len` method provides the length of the string). More information on the `find` method can be found [here](https://www.tutorialspoint.com/python/string_find.htm).
+
+Another useful method is the `join` method. This method takes 1 parameter, an iterable object (for example a string or list). This method joins the items of the iterable object together as 1 string while inserting the string this method is called upon between each item. The code below demonstrates this. 
+```python
+a = ','
+b = 'world'
+c = a.join(b)
+d = '123'
+e = d.join(b)
+```
+In this code, `c` holds `'w,o,r,l,d'` and `e` holds `'w123o123r123l123d'`.
+
+This can also be used for a list
+```python
+my_list = ['hello', 'world']
+print(a.join(my_list))
+```
+This code will print `'hello,world'` as it joins the elements of `my_list` together in a string but semesters the elements using `a`. 
+More documentation on the join method can be found [here](https://www.programiz.com/python-programming/methods/string/join).
+
+There are many other string manipulation methods you may find useful during this. You are encouraged to look further into the string documentation.
+
 ### Dictionaries
 Dictionaries work very similarly to Hash Maps in Java. A Dictionary is like a list in that it is a collection of objects, but it differs primarily in the fact that it is unordered. Rather than accessing elements via their numerical index (0,1,2,3... n - 1 where n is the size of the List, Dictionaries function by using key-value pairs. Rather than accessing a certain value by its numerical index, you can access that value via a key. Below is how you can define a dictionary in python.
 
@@ -134,4 +184,5 @@ if 'a' in my_dict:
   # do something
 ```
 Note, that the keys and values in a dictionary are not required to be strings, they can be any datatype, but keep in mind that each key must be unique. While two keys may have the same value associated with them, each key must different. 
+
 You can find more documentation regarding dictionaries [here](https://www.w3schools.com/python/python_dictionaries.asp)
