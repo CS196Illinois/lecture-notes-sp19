@@ -186,3 +186,90 @@ if 'a' in my_dict:
 Note, that the keys and values in a dictionary are not required to be strings, they can be any datatype, but keep in mind that each key must be unique. While two keys may have the same value associated with them, each key must different. 
 
 You can find more documentation regarding dictionaries [here](https://www.w3schools.com/python/python_dictionaries.asp)
+
+## If statements
+An if statement can be used to execute a block of code only when a certain conditino is true. For example,
+```python
+value = True
+if value:
+  print('hello')
+```
+In this situation, since `value = True`, `'hello'` will be printed to output, but if `value = False`, then the block of code belonging to an if-statement would not be executed. When looking at if-statements it is important to understand that can be any boolean expression. For example, we discussed the following regarding dictionaries
+```python
+my_dict = {'key': 'value'}
+if key in my_dict:
+  print('valid key')
+```
+In this case, `valid key` will be printed because the if-statement evaluates to true. For those familiar with java or most other language, you may notice that one key element is missing. the { } to determine what bit of code belongs to the if-statement and will execute only if the statement is true. In python, the only thing that determines what belongs to the if-statement is spacing. Notice how the code belonging to the if-statement is tabbed over. The first line that is not tabbed after the if-statement marks the end of the statement
+```python
+if variable:
+  print(1)
+  print(2)
+print(3)
+```
+For this code, 3 will always be printed but 1 and 2 will only print if variable is true. 
+
+Along with the if-statement, it is also important to understand `elif` and `else`. An `elif` condition allows you to statement a condition to test if the if-statement evaluates to false, try to see if the `elif` statement is true, if it is, then perform the actioo in the elif block. The `else` path is the one that will be taken if none of the `if` or `elif` conditions hold. Note that you cannot have an `else` or `elif` without the original if-statement. An example is as follows.
+```python
+if number == 1:
+  print('hello')
+elif number == 2:
+  print('world')
+elif number == 3:
+  print('hi')
+else:
+  print('bye')
+```
+In this code, if number is 1, then 'hello' is printed, if it is 2 then 'world' is printed, if it is 3 then 'hi' is printed, if `number` is any other value, then 'bye' will be printed. 
+
+If-statements can also be **nested**, meaning that an if-statement can be placed inside of another if statement
+```python
+if a:
+  if b:
+    print('wow')`
+```
+In this case, 'wow' will only be printed if both if-statements evaluate to true. 
+If you want a more detailed explanation on if-statements, you can go [here](http://anh.cs.luc.edu/handsonPythonTutorial/ifstatements.html)
+
+## Loop
+The final concept for these notes are loop. There are two fundamental types of loops we will be focusing on `for` and `while` loops.
+Loops allow us to repeatedly execute a block of code.
+
+### While Loop
+A while loop can be used to repeatedly execute a block of code while a certain conditino is true.
+```python
+while boolean_value:
+  print('hello')
+```
+This code will keep printing 'hello' as long long as the boolean_value is true. As soon as it is set to false, the loop will end.
+
+### For loop
+For loops allow us to repeat a bit of code a certain number of times.
+```python
+for i in range(100):
+  print('hello')
+```
+This code will print 'hello' 100 times. Note here that `i` is a variable and this code will change the value of `i` during each iteration of the for loop. The first iteration, `i` will equal 0, and the last iteration it will equal 99. You may find it useful to use the value of `i` inside the loop, in the case that you wish your coding to behave differently during certain iterations of the loop.
+I would recommend looking into the documentation for the `range` function [here](https://pynative.com/python-range-function/).
+
+For loops have a wide range of applications, for example, you may find it useful to iterate over the items in a list.
+```python
+my_list = [1,2,3,4]
+for item in my_list:
+  print(item)
+```
+This code will print out the number 1,2,3,4 each on a new line (the `print` function adds a new line after it prints). On the first iteration of the loop, `my_list[0]` is stored in the `item` variable, in the second iteration `my_list[1]` is stored in `item` and so forth. 
+
+Loops can also be used to iterate over the keys in a dictionary.
+```python
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+for element in my_dict:
+  print(my_dict[element])
+```
+Here, `element` will be given a key in the dictionary, so if we wish to print out all the values in the dictionary we must do `my_dict[element]` to get the value associated with `element`. 
+
+You can find more notes on for loops [here](https://www.w3schools.com/python/python_for_loops.asp)
+
+Similar to if-statements, loops can also be nested!
+
+This will conclude this week's pre-lecture notes, if you have any further questions, you are encouraged to Google them (the internet is your friend!) or ask them on piazza.
