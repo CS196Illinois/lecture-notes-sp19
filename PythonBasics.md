@@ -36,7 +36,7 @@ b = False
 ```
 If I wished to evaluate `a && b`, I could simply do `a and b`. 
 
-#### String
+#### Strings
 Strings are a sequence of characters. A String, or `str`, can be defined with either using single or double quotes around the desired sequence of characters. The following are valid strings:
 ```python
 'Hello'
@@ -134,3 +134,4 @@ if 'a' in my_dict:
   # do something
 ```
 Note, that the keys and values in a dictionary are not required to be strings, they can be any datatype, but keep in mind that each key must be unique. While two keys may have the same value associated with them, each key must different. 
+You can find more documentation regarding dictionaries [here](https://www.w3schools.com/python/python_dictionaries.asp)
