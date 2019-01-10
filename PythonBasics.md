@@ -4,13 +4,13 @@ These notes will provide a brief overview of the fundamentals of Python. Links w
 The basic datatypes we will be using in this class are **integers**, **floating point numbers**, **booleans**, and **strings**.
 Before we cover datatypes, it is important to understand what a **variable** is. A variable is an entity that can be used to store data.
 ```python
-myNumber = 5
-myWord = 'Hello'
+my_number = 5
+my_word = 'Hello'
 ```
-In the code snippet above, both **myNumber** and **myWord** are variables that are used to store/reference data. Now, if we wished to print the word, hello, to the screen. We could do either of the following.
+In the code snippet above, both `my_number` and `my_word` are variables that are used to store/reference data. Now, if we wished to print the word, hello, to the screen. We could do either of the following.
 ```python
 print('hello')
-print(myWord)
+print(my_word)
 ```
 We will cover variables more indepth here shortly. 
 
@@ -64,9 +64,42 @@ Note that I do not have to specify that the `myNumber` is an `int` in python. Th
 myNumber = 5
 myNumber = 'Hello'
 ```
-In java, this would throw an error, but in python, it is completely acceptable. This ability to change the type of a variable may seem convenient, but it can become confusing at times where you lose track of the type of the variable in question. Luckily, you can use the `type` method to determine the type of the variable.
+In java, this would throw an error, but in python, it is completely acceptable. This ability to change the type of a variable may seem convenient, but it can become confusing at times where you lose track of types of your variables. Luckily, you can use the `type` method to determine the type of the variable.
 ```python
-type(myNumber)
+type(my_number)
 ```
 While this may seem like a drastic change from java, python variables do share many features with their java counterpart such as scope.
 
+## Data Structures
+In this class, we will primarily focus on two datastuctures: lists and dictionaries.
+
+### Lists
+Python lists work similar to arrays in java. They can be defined as follows:
+```python
+list_a = []
+list_b = [1,2,3]
+```
+In the code above, `list_a` is defined to be an empty list while `list_b` holds the values `1,2,3`. Similar to java arrays, python lists are 0-indexed, which means you can access the first element of your list via `list_b[0]`, the second element via `list_b[1]`, and so forth. In python, it is also appropriate to use negative indices. The last element of your list can be indexed via `list_b[-1]`, second to last element via `list_b[-2]`, and so forth.
+
+Lists in python do not have a specific type associated with them, so a list can hold muliple different datatypes, or even other lists for that matter. The following is an entirely legal definition of a list.
+```python
+list_c = [1,2,'a', ['hello'], 4.2]
+```
+
+Another departure from java arrays is that python lists have the ability to change size once they are defined. For example, the `append` method can be used to add an element to the end of a list.
+```python
+my_list = [1,2,3]
+my_list.append(4)
+```
+This code would result in `my_list` being equal to `[1,2,3,4]`. Several other methods are available for you to work with and manipulate your lists, you can find documentation [here](https://docs.python.org/3/tutorial/datastructures.html)
+
+#### Slicing
+For this portion, we will be working with the following list
+```python
+my_list = [1,2,3,4,5,6,7]
+```
+There are times where you may wish  to only work with a portion of the list. At these times, it may be useful to employ slicing. A slice can be performed as follows `my_list[first : second]` where `first` and `second` are valid indices. A slice will return to you a subarray (portion of the array) that starts at the `first` index and goes up to but does not include the `second` index. So `my_list[1:3]` will return `[2,3]`. 
+
+You may also choose to omit either index in your slice. Omiting `first`, will start the slice at the start of the array, and omitting `second` will end the slice at the end of the array. So, `my_list[5:]` will produce `[6,7]` and `my_list[:2]` will produce `[1,2]`.
+
+Note, any changes you make to a slice of the list, such as changing a value, will affect the entire list. You can find more documentation [here](https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/).
