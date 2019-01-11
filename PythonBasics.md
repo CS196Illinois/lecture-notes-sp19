@@ -71,7 +71,7 @@ type(my_number)
 While this may seem like a drastic change from java, python variables do share many features with their java counterpart such as scope.
 
 ## Data Structures
-In this class, we will primarily focus on two datastuctures: lists and dictionaries.
+In this class, we will primarily focus on two datastructures: lists and dictionaries.
 
 ### Lists
 Python lists work similar to arrays in java. They can be defined as follows:
@@ -209,7 +209,7 @@ print(3)
 ```
 For this code, 3 will always be printed but 1 and 2 will only print if variable is true. 
 
-Along with the if-statement, it is also important to understand `elif` and `else`. An `elif` condition allows you to statement a condition to test if the if-statement evaluates to false, try to see if the `elif` statement is true, if it is, then perform the actioo in the elif block. The `else` path is the one that will be taken if none of the `if` or `elif` conditions hold. Note that you cannot have an `else` or `elif` without the original if-statement. An example is as follows.
+Along with the if-statement, it is also important to understand `elif` (the equilavent of an `else if` in java) and `else`. An `elif` condition allows you to provide an additional conditional statement to test if the if-statement evaluates to false. In the case the original if-statement is false, the `elif` condition will be tested and it is is true, then perform the action in the elif block. The `else` path is the one that will be taken if none of the `if` or `elif` conditions hold. Note that you cannot have an `else` or `elif` without the original if-statement. An example is as follows.
 ```python
 if number == 1:
   print('hello')
@@ -231,19 +231,29 @@ if a:
 In this case, 'wow' will only be printed if both if-statements evaluate to true. 
 If you want a more detailed explanation on if-statements, you can go [here](http://anh.cs.luc.edu/handsonPythonTutorial/ifstatements.html)
 
-## Loop
+## Loops
 The final concept for these notes are loop. There are two fundamental types of loops we will be focusing on `for` and `while` loops.
 Loops allow us to repeatedly execute a block of code.
 
-### While Loop
-A while loop can be used to repeatedly execute a block of code while a certain conditino is true.
+### While Loops
+A while loop can be used to repeatedly execute a block of code while a certain condition is true.
 ```python
 while boolean_value:
   print('hello')
 ```
-This code will keep printing 'hello' as long long as the boolean_value is true. As soon as it is set to false, the loop will end.
+This code will keep printing 'hello' as long as the boolean_value is true. As soon as it is set to false, the loop will end.
 
-### For loop
+An example of this use in practice is this simple program that prints the numbers from 1-10
+```python
+number = 1
+while number <= 10:
+  print(number)
+  number += 1
+```
+
+In this program, the while loop will continue as long as number is less than or equal to 10. And, each iteration, number is incremented by 1, so it will reach 10 after 10 interations. 
+
+### For loops
 For loops allow us to repeat a bit of code a certain number of times.
 ```python
 for i in range(100):
