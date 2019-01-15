@@ -1,7 +1,7 @@
 # Python Basics
 These notes will provide a brief overview of the fundamentals of Python. Links will be provided throughout for those that wish to learn more. 
 
-Reminder: Make sure to sign up for the piazza for the class. You can do so by going to piazza and searching for CS196 Spring 2019. Make sure to also join the class slack channel. You can do so by clicking [this](https://join.slack.com/t/cs196spring2019/shared_invite/enQtNTEyODg4NDE2NjQ1LTgwODRjZjA3M2U1NDNhMWM0MjhmMzI0ZjQ1MDQzZWJlNWIzYzQwNGFmNWE3ZDI0NWM4NDc3MWQxMGZlOTY0ZGI) link. 
+Reminder: Make sure to sign up for the piazza for the class. You can do so by going to piazza and searching for CS196 Spring 2019 or clicking [here](piazza.com/illinois/spring2019/cs196). Make sure to also join the class slack channel. You can do so by clicking [this](https://join.slack.com/t/cs196spring2019/shared_invite/enQtNTEyODg4NDE2NjQ1LTgwODRjZjA3M2U1NDNhMWM0MjhmMzI0ZjQ1MDQzZWJlNWIzYzQwNGFmNWE3ZDI0NWM4NDc3MWQxMGZlOTY0ZGI) link. 
 
 ## Basic Datatypes
 The basic datatypes we will be using in this class are **integers**, **floating point numbers**, **booleans**, and **strings**.
@@ -54,7 +54,7 @@ There are also a series of special characters that hold certain properties in py
 **If you wish to learn more about any of these datatypes, you can go [here](https://realpython.com/python-data-types/#boolean-type-boolean-context-and-truthiness)**
 
 ### Variables
-You may have noticed something odd when I was discussing variables above. In CS125, you will have learned to define an `int` variable `myNumber` as follows.
+You may have noticed something odd when I was discussing variables above. In CS125, you will have learned to define an `int` variable `myNumber` as follows in java.
 ```java
 int myNumber = 5
 ```
@@ -164,7 +164,7 @@ More documentation on the join method can be found [here](https://www.programiz.
 There are many other string manipulation methods you may find useful during this. You are encouraged to look further into the string documentation.
 
 ### Dictionaries
-Dictionaries work very similarly to Hash Maps in Java. A Dictionary is like a list in that it is a collection of objects, but it differs primarily in the fact that it is unordered. Rather than accessing elements via their numerical index (0,1,2,3... n - 1 where n is the size of the List, Dictionaries function by using key-value pairs. Rather than accessing a certain value by its numerical index, you can access that value via a key. Below is how you can define a dictionary in python.
+Dictionaries work very similarly to Hash Maps in Java. A Dictionary is like a list in that it is a collection of objects, but it differs primarily in the fact that it is unordered. Rather than accessing elements via their numerical index (0,1,2,3... n - 1 where n is the size of the List), Dictionaries function by using key-value pairs. Rather than accessing a certain value by its numerical index, you can access that value via a key. Below is how you can define a dictionary in python.
 
 ```python
 empty_dict = {}
