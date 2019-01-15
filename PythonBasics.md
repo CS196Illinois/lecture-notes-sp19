@@ -1,7 +1,7 @@
 # Python Basics
 These notes will provide a brief overview of the fundamentals of Python. Links will be provided throughout for those that wish to learn more. 
 
-Reminder: Make sure to sign up for the piazza for the class. You can do so by going to piazza and searching for CS196 Spring 2019 or clicking [here](piazza.com/illinois/spring2019/cs196). Make sure to also join the class slack channel. You can do so by clicking [this](https://join.slack.com/t/cs196spring2019/shared_invite/enQtNTEyODg4NDE2NjQ1LTgwODRjZjA3M2U1NDNhMWM0MjhmMzI0ZjQ1MDQzZWJlNWIzYzQwNGFmNWE3ZDI0NWM4NDc3MWQxMGZlOTY0ZGI) link. 
+Reminder: Make sure to sign up for the Piazza for the class. You can do so by going to Piazza and searching for CS196 Spring 2019 or clicking [here](piazza.com/illinois/spring2019/cs196). Make sure to also join the class Slack channel. You can do so by clicking [this](https://join.slack.com/t/cs196spring2019/shared_invite/enQtNTEyODg4NDE2NjQ1LTgwODRjZjA3M2U1NDNhMWM0MjhmMzI0ZjQ1MDQzZWJlNWIzYzQwNGFmNWE3ZDI0NWM4NDc3MWQxMGZlOTY0ZGI) link. 
 
 ## Basic Datatypes
 The basic datatypes we will be using in this class are **integers**, **floating point numbers**, **booleans**, and **strings**.
@@ -15,29 +15,29 @@ In the code snippet above, both `my_number` and `my_word` are variables that are
 print('hello')
 print(my_word)
 ```
-We will cover variables more indepth here shortly. 
+We will cover variables in more depth here shortly. 
 
 #### Integers
-The integer datatype is just what it sounds like, an integer (whole number). While other languages, such as java, may limit the size of an integer (integers can only be between -2,147,483,648 and 2,147,483,648), there is no such limitation in python. For example,
+The integer datatype is just what it sounds like, an integer (whole number). While other languages, such as Java, may limit the size of an integer (integers can only be between -2,147,483,648 and 2,147,483,648), there is no such limitation in Python. For example,
 ```python
 10
 1234343534534343
 ```
-Both of these numbers are considered to be an **int** (Integer) in python.
+Both of these numbers are considered to be an **int** (Integer) in Python.
 
 #### Floating Point Numbers
-The `float` type in Python is used for decimal numbers in python. For example, the following are floats:
+The `float` type in Python is used for decimal numbers in Python. For example, the following are floats:
 ```python
 4.2
 .12343434
 ```
 #### Boolean
-The `bool` type can take on one of two values, `True` or `False`. Similar to java, `&&`, `||`, and `!`, can be used to define boolean expressions. But the phrases `and`, `or`, and `not` are also available for use in python. For example.
+The `bool` type can take on one of two values, `True` or `False`. In Java, `&&`, `||`, and `!`, can be used to define boolean expressions. In Python, however you must use the keywords `and`, `or`, and `not`. For example.
 ```python
 a = True
 b = False
 ```
-If I wished to evaluate `a && b`, I could simply do `a and b`. 
+If I wished to evaluate `a && b`, I would simply do `a and b`. 
 
 #### Strings
 Strings are a sequence of characters. A String, or `str`, can be defined with either using single or double quotes around the desired sequence of characters. The following are valid strings:
@@ -51,10 +51,10 @@ But the following is not a valid string, as you have to match quotes
 ```
 There are also a series of special characters that hold certain properties in python. For example, `\n` and `\t`, will add a new line and a tab respectively to your string. In general, most of the properties you will have learned about strings in CS125 will carry over to python strings.
 
-**If you wish to learn more about any of these datatypes, you can go [here](https://realpython.com/python-data-types/#boolean-type-boolean-context-and-truthiness)**
+**If you wish to learn more about any of these datatypes, you can go [here](https://realpython.com/python-data-types)**
 
 ### Variables
-You may have noticed something odd when I was discussing variables above. In CS125, you will have learned to define an `int` variable `myNumber` as follows in java.
+You may have noticed something odd when I was discussing variables above. In CS125, you will learn to define an `int` variable `myNumber` as follows in java.
 ```java
 int myNumber = 5
 ```
@@ -62,22 +62,22 @@ But in python that variable may be defined:
 ```python
 my_number = 5
 ```
-Note that I do not have to specify that the `myNumber` is an `int` in python. This is because python employs dynamic typing for variables while java statically types variables. This means, that once defined, a variable in python can actually change types. For example, the following is an entirely valid bit of code
+Note that I do not have to specify that the `myNumber` is an `int` in Python. This is because Python employs dynamic typing for variables while Java statically types variables. This means, that once defined, a variable in Python can actually change types. For example, the following is an entirely valid bit of code
 ```python
 my_number = 5
 my_number = 'Hello'
 ```
-In java, this would throw an error, but in python, it is completely acceptable. This ability to change the type of a variable may seem convenient, but it can become confusing at times where you lose track of types of your variables. Luckily, you can use the `type` method to determine the type of the variable.
+In Java, this would throw an error, but in Python, it is completely acceptable. This ability to change the type of a variable may seem convenient, but it can become confusing at times where you lose track of types of your variables. Luckily, you can use the `type` method to determine the type of the variable.
 ```python
 type(my_number)
 ```
-While this may seem like a drastic change from java, python variables do share many features with their java counterpart such as scope.
+While this may seem like a drastic change from Java, Python variables do share many features with their Java counterpart such as scope.
 
 ## Data Structures
-In this class, we will primarily focus on two datastructures: lists and dictionaries.
+In this class, we will primarily focus on two data structures: lists and dictionaries.
 
 ### Lists
-Python lists work similar to arrays in java. They can be defined as follows:
+Python lists work similar to arrays in Java. They can be defined as follows:
 ```python
 list_a = []
 list_b = [1,2,3]
@@ -107,7 +107,7 @@ You may also choose to omit either index in your slice. Omiting `first`, will st
 
 Note, any changes you make to a slice of the list, such as changing a value, will affect the entire list. You can find more documentation [here](https://www.pythoncentral.io/how-to-slice-listsarrays-and-tuples-in-python/).
 #### Some extra notes on Strings
-Another note about python lists is that python strings are treated as lists. Similar to a list, you can index a string. For example
+Another note about python lists is that python strings are similiar (in some ways) to lists. Similar to a list, you can index a string. For example
 ```python
 my_string = 'hello'
 print(my_string[1])
@@ -203,7 +203,7 @@ my_dict = {'key': 'value'}
 if key in my_dict:
   print('valid key')
 ```
-In this case, `valid key` will be printed because the if-statement evaluates to true. For those familiar with java or most other language, you may notice that one key element is missing. the { } to determine what bit of code belongs to the if-statement and will execute only if the statement is true. In python, the only thing that determines what belongs to the if-statement is spacing. Notice how the code belonging to the if-statement is tabbed over. The first line that is not tabbed after the if-statement marks the end of the statement
+In this case, `valid key` will be printed because the if-statement evaluates to true. For those familiar with java or most other language, you may notice that one key element is missing. the { } to determine what bit of code belongs to the if-statement and will execute only if the statement is true. In python, the only thing that determines what belongs to the if-statement is indentation. Notice how the code belonging to the if-statement is tabbed over. The first line that is not tabbed after the if-statement marks the end of the statement
 ```python
 if variable:
   print(1)
@@ -297,6 +297,7 @@ def print_numbers():
 ```
 If I wish to invoke this method, I would simply have to add `print_numbers()` in my program and this function will be executed. 
 
+#### Parameters
 You may notice that there is a set of empty () after the name of my function. The () allow us to pass parameters into our functinos. A parameter is a value you can pass into the function. Here is an example
 ```python
 def print_numbers(number_of_times):
@@ -315,6 +316,15 @@ def print_numbers(start_number, end_number):
 ```
 This function will print all the numbers from `start_number` up to but not including `end_number`. 
 
+In python, it is also possible to set default values for parameters in the case that the user does not provide them. For example:
+```python
+def print_numbers(number_of_times = 10):
+  for i in range(number_of_times):
+    print(i)
+```
+In the code above, by default, the function will print the numbers from 0 to 9. This default value will be used if no parameter is provided as follows `print_number()`. But if the function is called as `print_numbers(20)`, then `number_of_times = 20`. 
+
+#### Return Values
 All the functions above simply perform an action but do not actually return a value. The keyword `return` can be used to end a function and pass back a value to whomever called the function. For example
 ```
 def add(num1, num2):
@@ -325,7 +335,7 @@ This function returns the sum of the two numbers. A person could call the functi
 value = add(2, 3)
 print(value)
 ```
-In this case, the value being returned by the add function is being stored in the value variable. 
+In this case, the number being returned by the add function is being stored in the `value` variable. 
 
 We will go more in-depth regarding functions in lecture. You can find a more in-depth tutorial regarding functions [here](https://www.datacamp.com/community/tutorials/functions-python-tutorial?utm_source=adwords_ppc&utm_campaignid=1565261270&utm_adgroupid=67750485268&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=295208661496&utm_targetid=dsa-473406571355&utm_loc_interest_ms=&utm_loc_physical_ms=9022185&gclid=EAIaIQobChMI3OvDh5rw3wIVBbnACh27BQ6dEAAYASAAEgJkrvD_BwE).
 
