@@ -1,5 +1,8 @@
 # Python Basics
 These notes will provide a brief overview of the fundamentals of Python. Links will be provided throughout for those that wish to learn more. 
+
+Reminder: Make sure to sign up for the piazza for the class. You can do so by going to piazza and searching for CS196 Spring 2019. Make sure to also join the class slack channel. You can do so by clicking [this](https://join.slack.com/t/cs196spring2019/shared_invite/enQtNTEyODg4NDE2NjQ1LTgwODRjZjA3M2U1NDNhMWM0MjhmMzI0ZjQ1MDQzZWJlNWIzYzQwNGFmNWE3ZDI0NWM4NDc3MWQxMGZlOTY0ZGI) link. 
+
 ## Basic Datatypes
 The basic datatypes we will be using in this class are **integers**, **floating point numbers**, **booleans**, and **strings**.
 Before we cover datatypes, it is important to understand what a **variable** is. A variable is an entity that can be used to store data.
@@ -188,7 +191,7 @@ Note, that the keys and values in a dictionary are not required to be strings, t
 You can find more documentation regarding dictionaries [here](https://www.w3schools.com/python/python_dictionaries.asp)
 
 ## If statements
-An if statement can be used to execute a block of code only when a certain conditino is true. For example,
+An if statement can be used to execute a block of code only when a certain condition is true. For example,
 ```python
 value = True
 if value:
@@ -281,5 +284,52 @@ Here, `element` will be given a key in the dictionary, so if we wish to print ou
 You can find more notes on for loops [here](https://www.w3schools.com/python/python_for_loops.asp)
 
 Similar to if-statements, loops can also be nested!
+
+## Functions
+Functions are python's equivalent of methods in java. A function can be used to group together a set of instructions so that they may be repeatedly called. A function often groups a set of instructions that work together to perform a specific task. So, rather than rewriting those instructinos everytime you wish to perform the task, you may simply invoke your functions. You have already seen several examples of function in the notes above such as `print`, `join`, `len`, `find` etc. These are examples of built-in functions since you do not have to define them in order to use them.
+
+### User Defined Functions
+In python, a user can define a function by using the `def` keyword. Here is an example of a function that will print out all the numbers from 0 to 99 each on a new line
+```python
+def print_numbers():
+  for i in range(100):
+    print(i)
+```
+If I wish to invoke this method, I would simply have to add `print_numbers()` in my program and this function will be executed. 
+
+You may notice that there is a set of empty () after the name of my function. The () allow us to pass parameters into our functinos. A parameter is a value you can pass into the function. Here is an example
+```python
+def print_numbers(number_of_times):
+  for i in range(number_of_times):
+    print(i)
+```
+In this case, `number_of_times` is a parameter. When calling this function, I could do the following:
+```python
+print_numbers(10)
+```
+And this will print the numbers from 0 to 9. Note that you can also pass in multiple parameters to a function.
+```python
+def print_numbers(start_number, end_number):
+  for i in range(start_number, end_number):
+    print(i)
+```
+This function will print all the numbers from `start_number` up to but not including `end_number`. 
+
+All the functions above simply perform an action but do not actually return a value. The keyword `return` can be used to end a function and pass back a value to whomever called the function. For example
+```
+def add(num1, num2):
+  return num1 + num2
+```
+This function returns the sum of the two numbers. A person could call the function as follows:
+```
+value = add(2, 3)
+print(value)
+```
+In this case, the value being returned by the add function is being stored in the value variable. 
+
+We will go more in-depth regarding functions in lecture. You can find a more in-depth tutorial regarding functions [here](https://www.datacamp.com/community/tutorials/functions-python-tutorial?utm_source=adwords_ppc&utm_campaignid=1565261270&utm_adgroupid=67750485268&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=1t1&utm_creative=295208661496&utm_targetid=dsa-473406571355&utm_loc_interest_ms=&utm_loc_physical_ms=9022185&gclid=EAIaIQobChMI3OvDh5rw3wIVBbnACh27BQ6dEAAYASAAEgJkrvD_BwE).
+
+
+
 
 This will conclude this week's pre-lecture notes, if you have any further questions, you are encouraged to Google them (the internet is your friend!) or ask them on piazza.
