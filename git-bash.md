@@ -25,13 +25,16 @@ To install git, open the terminal and run
 sudo apt install git-all
 ```
 
+and enter the password `osboxes.org`. 
+
 Then, we need to set our git identity by running 
 ```
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
-with your information filled out. 
+with your information filled out.
+ 
 Go to the repositories tab of your github account and click on new.
 ![alt text](./assets/repos.png)
 
