@@ -20,17 +20,22 @@ Definitions
 ### Example work flow 
 First, go make a github account [here](https://github.com/join) using your @illinois.edu email address. 
 
+To install git, open the terminal and run
+```
+sudo apt install git-all
+```
+
+Then, we need to set our git identity by running 
+```
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+```
+
+with your information filled out. 
 Go to the repositories tab of your github account and click on new.
 ![alt text](./assets/repos.png)
 
-Then we want to create a new directory for our repository and go into that directory by opening up the terminal and doing
-
-```
-mkdir cs196-test
-cd cs196-test
-```
-
-Once in this new directory we created, we can clone (similar to download) the repository we made on github by doing the commands they tell us here
+Now we can clone (similar to download) the repository we made on github by doing the commands they tell us here
 
 ```
 echo "# 196-test" >> README.md
@@ -40,6 +45,8 @@ git commit -m "first commit"
 git remote add origin https://github.com/<your-github-username>/196-test.git
 git push -u origin master
 ```
+It should ask you for username and password as well, so just enter that information in when prompted. 
+
 What this does is add a README.md file, which is a markdown file that is usually used to display information about what the repo is and how to install the necessary things to start working on this code. 
 
 REMINDER - your command will be different for the ".git" link since your repo is different than my repo, replace that line, or simply copy the commands github does for you. 
