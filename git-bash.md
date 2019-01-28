@@ -20,6 +20,9 @@ Definitions
 ### Example work flow 
 First, go make a github account [here](https://github.com/join) using your @illinois.edu email address. 
 
+REMINDER - You need to be running elementaryOS and not Debian to use sudo, refer to the piazza
+post describing this.
+
 To install git, open the terminal and run
 ```
 sudo apt install git-all
