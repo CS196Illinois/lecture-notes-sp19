@@ -66,7 +66,7 @@ if __name__ == "__main__":
     app.run()
 ```
 
-You can start the server executing the python file in your terminal. The output should look something like this:
+You can start the server by executing the python file in your terminal. The output should look something like this:
 
 ```
 python app.py 
