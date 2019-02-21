@@ -4,7 +4,7 @@ Before reading this week's notes, I recommend first checking out [last week's no
 This week we will continue discussing flask but will dive deeping into some of the more interesting things you can do with it. Prior to reading these notes, make sure you are comfortable with GET and POST requests on Flask. You can find a short tutorial [here](https://scotch.io/bar-talk/processing-incoming-request-data-in-flask).
 
 ## Response Types
-So far, all we've done when our Flask app is called is return a string which is then displayed on the webpage. Fortunately, we can do a lot more with our responses. 
+So far, all we've done when our Flask app is called is return a string which is then displayed on the webpage. Fortunately, we can do a lot more with our responses. In addition to these notes, you can find more information about response types [here](http://flask.pocoo.org/docs/0.12/quickstart/). 
 ### JSON
 One of the most common response types of responses is a JSON (JavaScript Object Notation). A typical JSON object may look something like this.
 ```javascript
@@ -68,5 +68,52 @@ Now, lets move onto the else statement. The else statement works to tell us what
 
 ![Postman GET](https://github.com/CS196Illinois/lecture-note-images/blob/master/PostmanGET.png)
 
+
+In these examples, we only focus on the `args` and `method` fields of a request object, but there are also many other fields avaiable to us. In additional to a request object, there are also response objects which can be retrieved after performing a command. The response object can be to check the status of a request in addition to any response message the server may return. When using Postman, the `body` field of the response object is printed. This `body` field is whatever is being returned by your python method. You can learn more about requests and responses [here](https://flask-restless.readthedocs.io/en/latest/requestformat.html). 
+
+Hopefully this has provided you with a brief overview of how JSON can be used in conjunction with Flask
+
+### Error Handling
+As you experiment with Flask, I'm sure you've reached a point where you try to perform a compand or look at a page, and an error has been thrown. Luckily, you are actually able to control your flask app's response to some of these errors. Lets look at a common error that may occur. 404: Page not found. Here is a simple handler for the error.
+```python
+@app.errorhandler(404)
+def page_not_found(error):
+	return "This page does not exist"
+```
+Here, if the status code of the request is a 404, rather than allowing a default error page to be displayed, we will instead get sent to a page with this message. The ability to handler errors can be extremely versatile.
+
+### Redirect
+Flask also allows you to redirect a user from one route to another. This other route can be another webpage altogether or even another route defined in the app.
+
+```python
+from flask import Flask, redirect, url_for
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+	return redirect(url_for('greeting'))
+
+@app.route('/greeting')
+def greeting():
+	return "Hello World"
+```
+In this example, when we visit our index page via the `/` route, we will automatically get redirected to a page that says Hello World. In this example, the `url_for` method is used to get the url associated with the greeting route. In practice, `redirect` can be passed in any url to redirect to.
+
+
+### Files
+We discussed earlier the `args` and `method` field of request, but `request` also has a `files` field which can be used to store files. Here is an example of a flask app that takes in a file and stores it to its local storage.
+```python
+from flask import Flask, request
+app = Flask(__name__)
+
+@app.route('/uploadphoto', methods = ['POST'])
+def upload_photo():
+	if request.method == 'POST':
+		f = request.files['myPhoto']
+		f.save('[insert url path here]/myPhoto.png')
+```
+This method takes the photo with the key name 'myPhoto' and saves it to the server's local storage. 
+
+There are many other useful/interseting response types available for Flask that you should definitely look into. You can find information about many of them in the links above. 
 
 
