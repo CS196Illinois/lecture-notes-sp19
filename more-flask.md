@@ -114,4 +114,13 @@ This method takes the photo with the key name 'myPhoto' that is passed in as a p
 There are many other useful/interseting response types available for Flask that you should definitely look into. You can find information about many of them in the links above. 
 
 ## Templates
-At this point if you are looking at the webpage tied to your server, you may realize its pretty lame! Luckily you can spice things up by adding HTML templates! HTML templates not only make your pages look nicer, but they also allow you to add text fields, buttons, drop down menus, and other displays that can make interacting with your server easier. You can use a template by having your flask functions return the `render_template` function while passing in your HTML template along with any parameters. I won't be covering HTML templates in these notes since there is quite a bit, but you can find many tutorials on the internet. Here is a useful one on rendering templates. z
+At this point if you are looking at the webpage tied to your server, you may realize its pretty lame! Luckily you can spice things up by adding HTML templates! HTML templates not only make your pages look nicer, but they also allow you to add text fields, buttons, drop down menus, and other displays that can make interacting with your server easier. You can use a template by having your flask functions return the `render_template` function while passing in your HTML template along with any parameters. I won't be covering HTML templates in these notes since there is quite a bit, but you can find many tutorials on the internet. [Here](https://www.tutorialspoint.com/flask/flask_templates.htm) is a useful one on rendering templates.
+
+# Calling your new server
+While Postman is a useful took for testing your server, you'll probably want to know to actually interact with it on practice. Note here though that if your server is running locally, you'll only be able to call it locally. So, lets get into how to actually call your Flask server. 
+
+It is also important to realize, that up to this point, we have added no security measures to our server. THIS IS VERY BAD IN PRACTICE. Since we are running it locally, this is not a problem, but if our server is run on the cloud, then this could be extremely problematic. Normally, we would want to secure our server by requiring tokens or other authentication in order to access/work with, but for now, we will not delve into this. 
+
+For this, you will want to install the python `requests` library. This can be done by using pip!
+`pip install requests`
+should do the trick. Now, lets get to interacting with our server. We will using the student information server that we described above. 
