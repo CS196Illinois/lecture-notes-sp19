@@ -14,10 +14,7 @@ One of the most common response types of responses is a JSON (JavaScript Object 
 ```
 That looks pretty much like a series of nested dictionaries and arrays, and that is exactly what JSON is. In fact, we will cover exactly how to go from a dictionary/array to a JSON and vice versa later in these notes. JSON are extremely useful when conveying complicated data or even an object. If you want to learn more about JSON, you can check out [this page](https://www.w3schools.com/python/python_json.asp).
 
-Now, for our use of JSON, we will be using the json package in python. You should already have access to this python package, but in case you don't, you can download this package by running
-```
-pip install json
-```
+Now, for our use of JSON, we will be using the json package in python.This package should be installed by default.
 There are four main commands we will be using from this package, `dump`, `dumps`, `load`, `loads`. You can find comprehensive documentation on these [here](https://docs.python.org/2/library/json.html). 
 
 The dump and dumps functions can be used to convert a dictionary/array into a json object. The dump conmmand converts it to an actual json object, while dumps converts to a string representation of the json object (which is what we need for our flask app since we will want to be sending and receiving strings from our server). Here is an example.
@@ -112,8 +109,9 @@ def upload_photo():
 		f = request.files['myPhoto']
 		f.save('[insert url path here]/myPhoto.png')
 ```
-This method takes the photo with the key name 'myPhoto' and saves it to the server's local storage. 
+This method takes the photo with the key name 'myPhoto' that is passed in as a parameter and saves it to the server's local storage. 
 
 There are many other useful/interseting response types available for Flask that you should definitely look into. You can find information about many of them in the links above. 
 
-
+## Templates
+At this point if you are looking at the webpage tied to your server, you may realize its pretty lame! Luckily you can spice things up by adding HTML templates! HTML templates not only make your pages look nicer, but they also allow you to add text fields, buttons, drop down menus, and other displays that can make interacting with your server easier. You can use a template by having your flask functions return the `render_template` function while passing in your HTML template along with any parameters. I won't be covering HTML templates in these notes since there is quite a bit, but you can find many tutorials on the internet. Here is a useful one on rendering templates. z
