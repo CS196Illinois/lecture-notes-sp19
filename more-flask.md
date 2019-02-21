@@ -31,20 +31,42 @@ my_str = json.dumps(my_dict)
 The load and loads functions do the opposite. load converts a json object to a dictionary/array, and loads converts a string representation of json into a dictionary.
 
 #### Using JSON with Flask
-Now that you understand JSON, lets see how we can use it for our flask app. A common use of JSON for flask is when making get and post requests. For example, if we want to get and post some information about myself, I can do the following.
+Now that you understand JSON, lets see how we can use it for our flask app. A common use of JSON for flask is when making get and post requests. I will now demo a simple flask app here, which we will dissect part by part. This app will store student's informations and will have both GET and POST functionalities
 
 ```python
 from flask import Flask, request
 import json
 
+students = {}
 app = Flask(__name__)
 
-app.route('/info', methods = ['POST'])
-def postinfo():
-  
-```
-Note here that when I am describing the route, I specify that the method I want to use is POST. I can now test this method out by using POST a useful tool called Postman which allows me to easily test my HTTP requests from an easy to use tool. You can find more info about postman and POST requests on flask [here](https://techtutorialsx.com/2017/01/07/flask-parsing-json-data/).
+@app.route('/info', methods = ['POST', 'GET'])
+def info():
+	if request.method == 'POST':
+		my_dict = request.args
+		name = my_dict.get('name', "")
+		students[name] = my_dict
+		return json.dumps(students)
+	else:
+		r = request.args
+		my_student = students.get(r['name'], "")
+		return json.dumps(my_student)
 
-Another way I can test this code out is by writing a GET request that will return to me this json of information. 
+
+if __name__ == "__main__":
+    app.run()
+```
+Lets go through this part by part. We have 1 method called info. This method allows us to both add students and remove students. As you 
+Becan see by the route, this method performs both GET and POST. The if-statement here checks the method being performed is a POST request. If it is, I can access the parameters to the post via `request.args` and from that I get the name of the student being added and use that to add my student to my `students` dictionary. The value being returned here is the response that the POSTer will receive. In this case, I am just returning the full dictionary of students (Note that I convert the dictionary to a JSON string). 
+
+Before I continue to what the rest of the function is doing, let us discuss how we can test this. We can use a tool called Postman. 
+You can find more information on POST requests and how to download Postman [here](https://techtutorialsx.com/2017/01/07/flask-parsing-json-data/). Postman allows you to specify the endpoint. Which can be the url here, specify the parameters, and run the request. Here is a screenshot demonstrating a response from Postman for our server here. 
+
+![Postman Post](https://github.com/CS196Illinois/lecture-note-images/blob/master/PostmanPOST.png)
+
+Now, lets move onto the else statement. The else statement works to tell us what to do if the request is a GET request. If the request is a GET, we will assume that the user will pass in the desired name as an arg. So we can use `request.args` to get the args, find the "name" parameter, search our students dictionary for the name, and return the relevant object (once again converting the object to a string representation of a JSON). Here is an example of how to test this on Postman.
+
+![Postman GET](https://github.com/CS196Illinois/lecture-note-images/blob/master/PostmanGET.png)
+
 
 
