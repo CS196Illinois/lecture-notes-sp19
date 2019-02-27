@@ -40,7 +40,7 @@ app = Flask(__name__)
 @app.route('/info', methods = ['POST', 'GET'])
 def info():
 	if request.method == 'POST':
-		my_dict = request.args
+		my_dict = request.form
 		name = my_dict.get('name', "")
 		students[name] = my_dict
 		return json.dumps(students)
@@ -128,7 +128,7 @@ should do the trick. Lets get to interacting with our server. We will using the 
 import requests
 
 def add_student(name, course, year):
-	response = requests.post('http://127.0.0.1:5000/info?name=' + name + '&class=' + course + '&year=' + year, auth = None)
+	response = requests.post('http://127.0.0.1:5000/info', data = {'name': name, 'class' : course, 'year': year}, auth = None)
 	print(response.content)
 
 
