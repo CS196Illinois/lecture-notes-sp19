@@ -4,7 +4,7 @@ So far, we have only been working with one type of program, mainly programs with
 
 In Python, we can get input very easily. 
 
-```
+```python
 name = input("what is your name : ")
 print("Hello", name)
 code = input("give me some python code : ")
@@ -12,7 +12,7 @@ print("Input was evaluated to : ", eval(code))
 ```
 
 What would the result be if we input 
-```
+```python
 [x*x for x in range(10)]
 ``` 
 
@@ -22,7 +22,7 @@ Instead of taking in raw user input, we could do some further automation by taki
 
 One thing we can do is open it similarly to how C works with files, is by opening and closing the file, by treating it similary like the input methods above. 
 
-```
+```python
 my_file = open("etc.txt", "r")
 print("filename : ", my_file.name)
 my_file.close()
@@ -30,7 +30,7 @@ my_file.close()
 
 Another thing we can do is read and write to files.
 
-```
+```python
 my_file = open("etc.txt", "r+")
 my_file.write("this is cs196\n")
 print("The first 10 bytes of this file are : ", my_file.read(10))
@@ -40,7 +40,7 @@ Note - w and r+ are parameters that tell us what we are doing with the file, suc
 
 Just like regular command line capabilities, we can also do things like creating, renaming, deliting, etc. 
 
-```
+```python
 import os
 os.rename("etc.txt", "stuff.txt")
 os.remove("stuff.txt")
@@ -54,7 +54,7 @@ This was mainly to get a sense of the basics of what we can do in Python relatin
 
 Lets do something that seems pointless at first. We are going to make a new directory, and make some files, write some random 1s and 0s, then read these 1s and 0s as ASCII characters and see what we have. 
 
-```
+```python
 import os
 import random
 
@@ -89,7 +89,7 @@ Challenge - Figure out what this does before running it. This means googling som
 
 To transition into a little bit of whay we are going to be doing later on, let us look at some other stuff we can do with fileIO, that is useful. Imagine you are a TA for a class, and you are assigned with inputting all the grades for the semester. This includes 3 midterms, 15 homework assignments, and a final. You have all the raw data as a .csv file, but you also need to calculate the means, medians, maxs, and mins for the entire semester, for each exam and assignment. Since this is UIUC and not a small private school, we have a class size of 1000 students. Doing this by hand is going to take your entire day, or you remember that you took 196 and can do this in 20 minutes. 
 
-```
+```python
 import os, csv, random
 from statistics import mean, median
 # Some code to simulate grades. 
