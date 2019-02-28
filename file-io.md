@@ -1,4 +1,4 @@
-# Input
+# Working with Files and User Input
 
 So far, we have only been working with one type of program, mainly programs without inputs or parameters. A lot of times it useful to get some information from a user and use that for something. 
 
