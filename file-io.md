@@ -94,6 +94,7 @@ import os, csv, random
 from statistics import mean, median
 # Some code to simulate grades. 
 
+# Helper function
 def get_line(index, name, info):
 	line = []
 	line.append(name)
@@ -109,6 +110,7 @@ def get_line(index, name, info):
 		line.append(info["median"])
 	return line
 
+# Helper function
 def get_info(scores):
 	info = {}
 	info["max"] = max(scores)
@@ -116,11 +118,6 @@ def get_info(scores):
 	info["mean"] = mean(scores)
 	info["median"] = median(scores)
 	return info
-
-def main():
-	write_files()
-	read_files()
-	return 
 
 def write_files():
 	
@@ -213,7 +210,11 @@ def read_files():
 
 		file_writer.writerow(get_line(-1, "final", final_info))
 
-
+def main():
+	write_files()
+	read_files()
+	return 
+    
 if __name__ == "__main__":
 	main()
 ```
