@@ -11,10 +11,11 @@ code = input("give me some python code : ")
 print("Input was evaluated to : ", eval(code))
 ```
 
-What would the result be if we input 
 ```python
 [x*x for x in range(10)]
-``` 
+```     
+
+Try inputting the above code at both prompts for input and see what happens!
 
 Now, do not use eval again since it is a security risk in practically every language. Ask yourself why.
 
@@ -214,7 +215,7 @@ def main():
 	write_files()
 	read_files()
 	return 
-    
+
 if __name__ == "__main__":
 	main()
 ```
