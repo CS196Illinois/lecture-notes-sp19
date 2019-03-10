@@ -46,3 +46,44 @@ There are many more applications for numpy, if you want to learn more (which I h
 
 ## Scipy (scientific python)
 I am not going to cover scipy in this tutorial specifically, but I recommend checking [this one](https://docs.scipy.org/doc/scipy/reference/tutorial/) out. If there is a numerical function you can't find in numpy, it is likely available in scipy.
+
+## Matplotlib
+Matplotlib is going to be your go to option when plotting data in python. Whether you can looking for a line chart, bar chart, box plot, scatterplot, histogram, heatmap, etc, matplotlib has got you covered. Lets look at some examples.
+
+Say we wanted to plot the sin function from 0 to 4 pi, we can do the following.
+![line chart](https://github.com/CS196Illinois/lecture-notes-sp19/blob/master/assets/line.png)
+Note here that we are using linespace to get 1000 points from 0 to 4pi and calling the np.sin function on it. When we plot it, we just plot the sin values. You may notice though that the x-axis goes up to 1000 instead of 4pi, this is because we did not specify what x values to use. So, by default, matplotlib just uses the array index of each value since `sin` is just an array of sin values. The following image hows to provide those x values, while also including multiple lines and a legend on the same chart. 
+![better line](https://github.com/CS196Illinois/lecture-notes-sp19/blob/master/assets/betterline.png)
+
+Note that when you are using matplotlib, if you call `plt.plot` several times, all the lines will be on the same graph, if you wnat items on separate graphs, you need to call `plt.figure()` between the calls ot plot as this will create a new figure. 
+
+As I stated earlier, matplotlib is useful for essentially every type of data visualization you could want. Here is an example of how to plot a scatter plot and histogram using matplotlib.
+![scatterplot](https://github.com/CS196Illinois/lecture-notes-sp19/blob/master/assets/scatter.png)
+![histogram](https://github.com/CS196Illinois/lecture-notes-sp19/blob/master/assets/hist.png)
+If you wish to save your image to a png, you can do `plt.savefig('filename.png')`.
+
+For the official matplotlib pyplot tutorial/documentation, you can go [here](https://matplotlib.org/users/pyplot_tutorial.html)
+As with numpy, make sure to google if you don't know how to create a certain type of plot!
+
+## Pandas
+The last concept we will be covering in this lecture are pandas. Pandas are used to create `dataframes` in python. A dataframe can be thought as a table in python. A table will have several rows and columns with each entry representing the value for that specific row, column pair. 
+Often times, you will find data passed into to via a `.csv` file, these are files you would likely view in excel as they are often used to represent a table of a large data set. pandas offers an effective method `pandas.read_csv(filename)` to convert this csv file into a data frame. [here](https://pythonspot.com/pandas-read-csv/) is an example of how to use this.
+
+Once we have our data in a dataframe, we can start working with it. As an example, say I have a table where each row represents a student, and the columns are UIN, GPA, NetId, age, gender, firstName, and LastName. If this data was stored in a file called `students.csv` to create my dataframe I could do.
+```python
+import pandas as pd
+df = pd.read_csv('students.csv')
+```
+Now, if I wanted just the UINs of the students, I could do `df['UIN']` to access all the elements of the UIN column. 
+
+If I want to access all the information for my 0th student (by default the rows are 0th index, although you are free to specify the index you want assigned to each row when you create the dataframe), I could do `df.iloc[0]` which would return to me all the column values for that index.
+
+I can also select certain rows from the table where a certain condition holds. If I wanted to get all the students who's gpa was greater than 3.0, I could do `df[df['GPA'] > 3.0]` and this would return to me a group of rows where this condition holds.
+
+Dataframes also offer me the ability to group rows together based on certain criterias using [groupby](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html), count the number of elements in a given row or column using [count](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.count.html), count the number of unique values for a certain column or row using `nunique()`, as well as many other useful data manipulations. 
+
+if you wish to check it out, you can find the official pandas tutorial [here](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html).
+
+To end these notes, I reiterate that for all of these libraries, the internet is your friend. You are unlikely to remember every single using numpy, scipy, matplotlib, or pandas function, so do not be afraid to google if you need help. These libraries are made to make your life easier. If you are working with numerical data in python, you'll will save yourself a lot of time by using the built in functions provided by these libraries rather than writing your own implementations of many of their features. 
+
+If you have any questions, feel free to ask them on piazza!
